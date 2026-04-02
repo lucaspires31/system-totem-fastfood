@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+.home-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.mirror-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 0;
+}
+
+.mirror-side {
+  flex: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(12px) brightness(0.5);
+}
+
+/* lado esquerdo usando a imagem espelhada */
+.mirror-side.left {
+  background-position: left center;
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
+/* lado direito normal */
+.mirror-side.left {
+  background-position: 99% center;
+  transform: scaleX(-1);
+}
+
+.mirror-side.right {
+  background-position: 99% center;
+
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* imagem principal no centro */
+.main-img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.home-overlay {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.start-button {
+  border: none;
+  border-radius: 20px;
+  padding: 20px 44px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  cursor: pointer;
+  background: #cf2027;
+  color: #fff7d6;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 768px) {
+  .mirror-side {
+    filter: blur(8px) brightness(0.45);
+  }
+
+  .main-img {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+  }
+
+  .home-overlay {
+    bottom: 24px;
+    padding: 0 16px;
+  }
+
+  .start-button {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 24px;
+    font-size: 1.2rem;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-overlay {
+    bottom: 18px;
+    padding: 0 12px;
+  }
+
+  .start-button {
+    max-width: 280px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+}

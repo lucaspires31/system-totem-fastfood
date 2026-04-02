@@ -1,0 +1,239 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+.cpf-screen {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Fredoka", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #ffbc0d 0%, #e63900 50%, #b30000 100%);
+}
+
+.cpf-container {
+  width: 520px;
+  max-width: 92%;
+  padding: 34px 28px;
+  border-radius: 28px;
+  background: rgba(255, 246, 229, 0.12);
+  border: 1px solid rgba(255, 246, 229, 0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  color: #fff6e5;
+}
+
+.cpf-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.cpf-container p {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.optional {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #fff0cf;
+}
+
+.cpf-input {
+  width: 100%;
+  padding: 18px;
+  border-radius: 18px;
+  border: none;
+  background: #fff6e5;
+  color: #3b1f00;
+  font-size: 1.3rem;
+  text-align: center;
+  outline: none;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+.teclado {
+  margin-bottom: 20px;
+}
+
+.teclado-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tecla {
+  border: none;
+  border-radius: 18px;
+  padding: 18px 0;
+  background: #fff6e5;
+  color: #3b1f00;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.tecla:hover {
+  transform: scale(1.03);
+}
+
+.tecla:active {
+  transform: scale(0.97);
+}
+
+.tecla-acao {
+  background: #cf2027;
+  color: #fff;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.confirmar,
+.pular {
+  flex: 1;
+  border: none;
+  border-radius: 18px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Fredoka", sans-serif;
+  cursor: pointer;
+}
+
+.confirmar {
+  background: #ffbc0d;
+  color: #3b1f00;
+}
+
+.pular {
+  background: transparent;
+  border: 2px solid #fff6e5;
+  color: #fff6e5;
+}
+
+@media (max-width: 768px) {
+  .cpf-screen {
+    padding: 16px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .cpf-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .cpf-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .cpf-container p {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .cpf-input {
+    padding: 14px;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+
+  .teclado-grid {
+    gap: 10px;
+  }
+
+  .tecla {
+    padding: 14px 0;
+    font-size: 1.1rem;
+    border-radius: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .confirmar,
+  .pular {
+    width: 100%;
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cpf-screen {
+    padding: 12px;
+  }
+
+  .cpf-container {
+    padding: 20px 14px;
+  }
+
+  .cpf-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .cpf-container p {
+    font-size: 0.9rem;
+  }
+
+  .cpf-input {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .teclado-grid {
+    gap: 8px;
+  }
+
+  .tecla {
+    font-size: 1rem;
+    padding: 12px 0;
+    border-radius: 12px;
+  }
+}
+
+.cpf-container h1{
+  font-size: 60px;
+}
+
+.cpf-container p{
+  font-size: 40px;
+}
+
+.cpf-container span{
+  font-size: 30px;
+}
+
+.cpf-input{
+  font-size: 50px;
+}
+
+.tecla {
+  font-size: 50px; /* Aumenta o tamanho da fonte dentro das teclas */
+  /* Aumenta a altura das teclas */
+}
+
+.tecla-acao {
+  font-size: 40px; /* Aumenta o tamanho da fonte das teclas de ação */
+  /* Aumenta a altura das teclas de ação */
+}
+
+.buttons button {
+  font-size: 40px; /* Aumenta o tamanho da fonte dentro dos botões */
+  /* Arredonda os cantos do botão */
+}
+

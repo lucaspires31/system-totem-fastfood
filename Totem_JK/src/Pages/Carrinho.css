@@ -1,0 +1,764 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.carrinho-screen {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffbc0d 0%, #e23b1d 52%, #b31317 100%);
+  color: #fff6e5;
+  font-family: "Fredoka", sans-serif;
+  padding: 24px;
+}
+
+.carrinho-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  flex-direction: row-reverse;
+}
+
+.carrinho-header h1 {
+  font-size: 2.3rem;
+  padding: 8px 18px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.voltar-btn {
+  border: none;
+  border-radius: 16px;
+  padding: 18px 24px;
+  background: #cf2027;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.carrinho-content {
+  display: grid;
+  grid-template-columns: 1.7fr 0.9fr;
+  gap: 24px;
+}
+
+.carrinho-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(255, 248, 235, 0.16);
+  border: 1px solid rgba(255, 246, 229, 0.2);
+  border-radius: 24px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.descricao {
+  color: #fff0cc;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.preco-unitario {
+  color: #ffe082;
+  font-weight: 600;
+}
+
+.item-actions {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-imagem {
+  width: 150px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 246, 229, 0.45);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contador button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #cf2027;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contador span {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.subtotal {
+  color: #ffdf7b;
+  font-weight: 700;
+}
+
+.remover-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  background: #8b0000;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.resumo-card {
+  background: rgba(255, 248, 235, 0.16);
+  border: 1px solid rgba(255, 246, 229, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.resumo-card h2 {
+  font-size: 1.5rem;
+}
+
+.resumo-imagem {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 246, 229, 0.45);
+}
+
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+}
+
+.total-box strong {
+  color: #ffdf7b;
+  font-size: 1.3rem;
+}
+
+.select-payment-btn,
+.confirmar-btn,
+.imprimir-btn,
+.nova-venda-btn {
+  border: none;
+  border-radius: 18px;
+  padding: 14px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.select-payment-btn {
+  background: #cf2027;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.confirmar-btn {
+  background: #ffbc0d;
+  color: #3b1f00;
+  font-size: 1.1rem;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 16px;
+}
+
+.payment-option input[type="radio"] {
+  accent-color: #cf2027;
+  width: 18px;
+  height: 18px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.nota-box {
+  width: 420px;
+  max-width: 92%;
+  background: #ffffff;
+  color: #3b1f00;
+  border-radius: 24px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal-pagamento,
+.nota-fiscal {
+  width: 420px;
+  max-width: 92%;
+  background: #ffffff !important;
+  color: #3b1f00;
+  border-radius: 24px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-pagamento h2,
+.nota-fiscal h2 {
+  margin-bottom: 12px;
+}
+
+.qr-code-box {
+  margin: 18px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fake-qr {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #000 10%, transparent 10%) 0 0/20px 20px,
+    linear-gradient(#000 10%, transparent 10%) 0 0/20px 20px,
+    #fff;
+  border: 8px solid #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.nota-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0;
+  text-align: left;
+}
+
+.nota-item,
+.nota-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nota-total {
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+  margin-top: 12px;
+  font-size: 1.1rem;
+}
+
+.nota-botoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.imprimir-btn {
+  flex: 1;
+  background: #cf2027;
+  color: #fff;
+}
+
+.nova-venda-btn {
+  flex: 1;
+  background: #ffbc0d;
+  color: #3b1f00;
+}
+
+.carrinho-vazio {
+  background: rgba(255, 248, 235, 0.16);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+}
+
+.nota-topo {
+  text-align: left;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #bbb;
+}
+
+.nota-topo h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #cf2027;
+}
+
+.nota-topo p {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.pontos-info {
+  color: #1e8e3e;
+  font-weight: 700;
+}
+
+.nota-item {
+  gap: 12px;
+}
+
+.nota-item-texto {
+  display: flex;
+  flex-direction: column;
+}
+
+.nota-item-nome {
+  font-weight: 700;
+}
+
+.nota-item-texto small {
+  color: #555;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+
+.nota-sorteio {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed #bbb;
+  text-align: center;
+}
+
+.nota-sorteio h4 {
+  color: #cf2027;
+  margin-bottom: 8px;
+}
+
+.nota-sorteio p {
+  font-size: 0.92rem;
+  margin-bottom: 14px;
+}
+
+.nota-qr {
+  margin-top: 8px;
+}
+
+.confirmar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qr-code-box img {
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .carrinho-screen {
+    padding: 16px;
+  }
+
+  .carrinho-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;  
+  }
+
+  .carrinho-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .voltar-btn {
+    width: 100%;
+  }
+
+  .carrinho-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .item-card {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .item-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .descricao {
+    font-size: 0.95rem;
+  }
+
+  .item-actions {
+    width: 100%;
+  }
+
+  .item-imagem {
+    width: 100%;
+    max-width: 220px;
+    height: 150px;
+  }
+
+  .contador {
+    gap: 10px;
+  }
+
+  .contador button {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .resumo-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .resumo-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .resumo-imagem {
+    height: 160px;
+  }
+
+  .total-box {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  .total-box strong {
+    font-size: 1.15rem;
+  }
+
+  .select-payment-btn,
+  .confirmar-btn,
+  .imprimir-btn,
+  .nova-venda-btn {
+    width: 100%;
+  }
+
+  .nota-botoes {
+    flex-direction: column;
+  }
+
+  .modal-pagamento,
+  .nota-fiscal,
+  .nota-box {
+    width: 100%;
+    max-width: 95%;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .fake-qr {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrinho-screen {
+    padding: 12px;
+  }
+
+  .carrinho-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .item-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .item-info h2 {
+    font-size: 1rem;
+  }
+
+  .descricao,
+  .preco-unitario,
+  .subtotal {
+    font-size: 0.9rem;
+  }
+
+  .item-imagem {
+    max-width: 180px;
+    height: 125px;
+  }
+
+  .remover-btn {
+    width: 100%;
+  }
+
+  .resumo-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .resumo-imagem {
+    height: 140px;
+  }
+
+  .payment-option {
+    padding: 10px 12px;
+  }
+
+  .modal-pagamento,
+  .nota-fiscal,
+  .nota-box {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .fake-qr {
+    width: 130px;
+    height: 130px;
+  }
+
+  .nota-topo h3 {
+    font-size: 1.1rem;
+  }
+
+  .nota-topo p,
+  .nota-item-texto small,
+  .nota-sorteio p {
+    font-size: 0.82rem;
+  }
+}
+
+.carrinho-header h1 {
+  font-size: 2.8rem; /* Aumenta o tamanho do título */
+}
+
+.item-info h2 {
+  font-size: 50px; /* Aumenta o tamanho do nome do item no carrinho */
+}
+
+.descricao {
+  font-size: 30px; /* Aumenta a descrição do item */
+}
+
+.preco-unitario {
+  font-size: 40px; /* Aumenta o preço unitário do item */
+}
+
+.contador button {
+  width: 48px;  /* Aumenta o tamanho dos botões */
+  height: 48px;
+  font-size: 50px; /* Aumenta a fonte dentro do botão */
+}
+
+.subtotal {
+  font-size: 45px; /* Aumenta o subtotal */
+}
+
+.total-box {
+  font-size: 50px; /* Aumenta o tamanho da fonte no total */
+}
+
+.remover-btn,
+.confirmar-btn,
+.imprimir-btn,
+.nova-venda-btn {
+  font-size: 30px; /* Aumenta o tamanho dos botões */
+}
+
+
+.voltar-btn {
+  font-size: 30px; /* Aumentando o tamanho da fonte do botão Voltar ao Menu */
+}
+
+
+.contador button {
+  width: 60px;  /* Aumenta o tamanho dos botões */
+  height: 60px;
+  font-size: 2rem; /* Aumenta o tamanho da fonte dentro do botão */
+}
+
+.contador span {
+  font-size: 3rem; /* Aumenta o tamanho do texto da quantidade */
+}
+
+.select-payment-btn {
+  font-size: 30px; /* Aumenta o tamanho da fonte do botão 'Selecionar Pagamento' */
+  padding: 16px 18px; /* Ajuste para aumentar o tamanho do botão */
+}
+
+.payment-options{
+  font-size: 40px; /* Aumenta o tamanho das fontes dos tipos de pagamento */
+}
+
+.sla {
+  font-size: 100px; /* Aumenta o tamanho da fonte do valor total */
+}
+
+.resumo-card h2{
+  font-size: 40px;
+}
+
+
+
+.total-box strong {
+  font-size: 40px; /* Aumentando o tamanho da fonte do valor total */
+}
+
+.carrinho-vazio h2{
+  font-size: 40px;
+}
+
+.carrinho-vazio p{
+  font-size: 40px;
+}
+
+.modal-pagamento h2 {
+  font-size: 2.5rem; /* Aumenta o tamanho de 'Aguardando pagamento' */
+}
+
+.modal-pagamento p {
+  font-size: 2rem; /* Aumenta o tamanho do texto 'Forma escolhida' */
+}
+
+.modal-pagamento .qr-code-box img {
+  width: 250px; /* Aumenta a largura do QR Code */
+  height: 250px; /* Aumenta a altura do QR Code */
+}
+
+.confirmar-btn {
+  font-size: 2rem; /* Aumenta a fonte do botão 'Confirmar' */
+  padding: 20px 40px; /* Aumenta o tamanho do botão */
+}
+
+.nota-topo h3 {
+  font-size: 2.5rem; /* Aumenta o título 'Nota Fiscal' */
+}
+
+.nota-total strong {
+  font-size: 2.5rem; /* Aumenta o valor total */
+}
+
+.nota-qr img {
+  width: 250px; /* Aumenta a largura do QR Code na nota fiscal */
+  height: 250px; /* Aumenta a altura do QR Code na nota fiscal */
+}
+
+.nota-box h2{
+  font-size: 50px;
+}
+
+.nota-topo p {
+  font-size: 25px; /* Aumenta o título 'Nota Fiscal' */
+}
+
+.nota-total {
+  font-size: 50px; /* Aumenta o valor total */
+}
+
+
+.nota-lista{
+  font-size: 30px;
+}
+
+
+.nota-sorteio h4{
+  font-size: 35px;
+}
+
+.nota-sorteio p{
+  font-size: 30px;
+}
+
+.nota-item-texto small {
+  font-size: 24px; /* Aumenta a descrição do item */
+}
+
+
+@media print {
+  /* Remove elementos desnecessários ou ajusta o layout para impressão */
+  body {
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nota-box, .modal-pagamento, .nota-fiscal {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .nota-lista {
+    font-size: 14px;  /* Ajuste do tamanho da fonte */
+  }
+
+  .nota-item, .nota-total {
+    display: block;  /* Garantir que os itens estejam em linha */
+    width: 100%;
+  }
+
+  .imprimir-btn {
+    display: none; /* Não exibe o botão de imprimir na impressão */
+  }
+  
+  /* Outras regras para ajustes no layout de impressão */
+}
